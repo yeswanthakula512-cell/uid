@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.square{
+    height:200px;
+    width:200px;
+    background-color:rgb(20, 1, 1);
+    position:relative;
+    animation-name:myanimation;
+    animation-delay:3s;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+    margin-top:20px;
+}
+
+@keyframes myanimation{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 style="color:rgb(45, 6, 241);font-size:xx-large;">
+Infinite Rotating Square
+</h1>
+
+<p style="font-size:x-large">
+This square rotates 360 degrees continuously using CSS
+</p>
+
+<div class="square"></div>
+
+</div>
+
+</body>
+</html>

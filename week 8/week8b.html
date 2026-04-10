@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Bouncing Ball</title>
+
+    <style>
+        /* Reset & Body Styling */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container */
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Heading */
+        h1 {
+            color: darkred;
+            margin: 0;
+        }
+
+        /* Description */
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* Ball Styling */
+        .ball {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: black;
+            position: relative;
+
+            /* Animation */
+            animation: moveBall 4s linear infinite;
+        }
+
+        /* Animation Keyframes */
+        @keyframes moveBall {
+            0%   { left: 0; top: 0; }
+            25%  { left: 200px; top: 0; }
+            50%  { left: 200px; top: 200px; }
+            75%  { left: 0; top: 200px; }
+            100% { left: 0; top: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Infinite Bouncing Ball</h1>
+        <p>This animation shows movement using CSS</p>
+        <div class="ball"></div>
+    </div>
+</body>
+</html>
