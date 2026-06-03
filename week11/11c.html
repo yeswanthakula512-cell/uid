@@ -1,0 +1,53 @@
+ <!DOCTYPE html> 
+<html> 
+    <head> 
+        <style> 
+            body{ 
+                background-color: #4dc3ee; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                min-height: 100vh; 
+                margin: 0; 
+            } 
+ 
+input{ 
+    padding: 8px; 
+    width: 250px; 
+    margin-top: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+} 
+ 
+h1{ 
+    text-align: center; 
+} 
+        </style> 
+    </head> 
+    <body> 
+        <h1>Password Strength Checker (Weak or Strong Detection)</h1> 
+ 
+         
+            password<input type="password" id="pass" onkeyup="checkstrength()"><br> 
+            <p id="msg"></p> 
+         
+        <script> 
+            function checkstrength(){ 
+                let password=document.getElementById("pass").value; 
+                let msg=document.getElementById("msg"); 
+                let strongpattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/; 
+                if(password.length===0){ 
+                    msg.innerHTML=""; 
+                } 
+                else if(strongpattern.test(password)){ 
+                    msg.innerHTML="strong password"; 
+                    msg.style.color="green"; 
+                } 
+                else{ 
+                    msg.innerHTML="weak password"; 
+                    msg.style.color="red"; 
+                } 
+            } 
+        </script> 
+    </body> 
+</html> 

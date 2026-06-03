@@ -1,0 +1,59 @@
+ <!DOCTYPE html> 
+<html> 
+    <head> 
+        <style> 
+            body{ 
+                background-color: #4dc3ee; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                min-height: 100vh; 
+                margin: 0; 
+            } 
+            input { 
+                padding: 8px; 
+                width: 250px; 
+                margin-top: 10px; 
+                border: 1px solid #ccc; 
+                border-radius: 5px; 
+            } 
+            #msg { 
+                font-size: 14px; 
+                margin-top: 10px; 
+                font-style: normal; 
+            } 
+            div{ 
+                justify-content:center; 
+                text-align:center; 
+            } 
+            h1{ 
+                text-align:center; 
+            } 
+        </style> 
+    </head> 
+    <body> 
+        <h1>Mobile Number Validation on Input Blur (10 Digits Required)</h1> 
+        <div> 
+            PhoneNumber:<input type="text" id="num" onblur="validatephonenumber()"><br> 
+            <p id="msg"></p> 
+        </div> 
+        <script> 
+            function validatephonenumber(){ 
+                let phonenumber=document.getElementById("num").value; 
+                let msg=document.getElementById("msg"); 
+                let pattern=/^[0-9]{10}$/; 
+                if(phonenumber.length===0){ 
+                    msg.innerHTML=""; 
+                } 
+                else if(pattern.test(phonenumber)){ 
+                    msg.innerHTML="valid phone number"; 
+                    msg.style.color="green"; 
+                } 
+                else{ 
+                    msg.innerHTML="invalid phone number(must be 10 digits)"; 
+                    msg.style.color="red"; 
+                } 
+            } 
+        </script> 
+    </body> 
+</html> 

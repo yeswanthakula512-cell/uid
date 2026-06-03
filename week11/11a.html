@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+         <style> 
+            body{ 
+                background-color: #4dc3ee; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                justify-content: center; 
+                margin:0; 
+                min-height: 100vh; 
+            } 
+            input { 
+                padding: 8px; 
+                width: 250px; 
+                margin-top: 10px; 
+                border: 1px solid #ccc; 
+                border-radius: 5px; 
+            } 
+            #msg { 
+                font-size: 14px; 
+                margin-top: 10px; 
+                font-style: normal; 
+            } 
+            div{ 
+                justify-content:center; 
+                text-align:center; 
+            } 
+            h1{ 
+                text-align:center; 
+            } 
+       </style> 
+    </head> 
+    <body> 
+        <h1><i>Real-Time Username Validation (Minimum 5 Characters)</i></h1> 
+        <div> 
+             UserName:<input type="text" id="name" placeholder="Enter the username" onkeyup="validate()"><br> 
+             <p id="msg"></p> 
+        </div> 
+        <script> 
+            function validate(){ 
+                let value=document.getElementById("name").value; 
+                if(value.length<5){ 
+                    document.getElementById("msg").innerHTML="Minimum 5 characters required"; 
+                    document.getElementById("msg").style.color="red"; 
+                } 
+                else{ 
+                    document.getElementById("msg").innerHTML="Valid Input"; 
+                    document.getElementById("msg").style.color="green"; 
+                } 
+            } 
+        </script> 
+ 
+    </body> 
+</html> 

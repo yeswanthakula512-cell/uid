@@ -1,0 +1,84 @@
+ <!DOCTYPE html> 
+<html> 
+    <head> 
+        <style> 
+            body{ 
+                background-color: #4dc3ee; 
+                display: flex; 
+                background-repeat: no-repeat; 
+                background-position: center; 
+                background-size: cover; 
+                min-height:100vh; 
+                margin:0; 
+                display:flex; 
+                flex-direction:column; 
+                align-items:center; 
+                justify-content:center; 
+            } 
+            input { 
+                padding: 8px; 
+                width: 250px; 
+                margin-top: 10px; 
+                border: 1px solid #ccc; 
+                border-radius: 5px; 
+            } 
+            #msg { 
+                font-size: 14px; 
+                margin-top: 10px; 
+                font-style: normal; 
+            } 
+            div{ 
+                justify-content:center; 
+                text-align:center; 
+            } 
+            form{ 
+                text-align:center; 
+            } 
+            form input{ 
+                display:block; 
+                margin:10px auto; 
+            } 
+            h1{ 
+                text-align:center; 
+            } 
+        </style> 
+    </head> 
+    <body> 
+        <h1>Complete Registration Form Validation (Name, Email, Password)</h1> 
+        <form onsubmit=" return validateform()"> 
+            Name:<input type="text" id="name" ><br> 
+            Email:<input type="text" id="email"><br> 
+            Password:<input type="password" id="pass"><br> 
+            <input type="submit" value="register"> 
+        </form> 
+        <p id="msg"></p> 
+        <script> 
+            function validateform(){ 
+                let name=document.getElementById("name").value; 
+                let email=document.getElementById("email").value; 
+                let password=document.getElementById("pass").value; 
+                let msg=document.getElementById("msg"); 
+                if(name===""){ 
+                    msg.innerHTML="please enter your name"; 
+                    msg.style.color="red"; 
+                    return false; 
+                } 
+                let validateemail=/[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/; 
+                if(!validateemail.test(email)){ 
+                    msg.innerHTML="invalid email address"; 
+                    msg.style.color="red"; 
+                    return false; 
+                } 
+                if (password.length<6){ 
+                    msg.innerHTML="password must conatin 6 characters"; 
+                    msg.style.color="red"; 
+                    return false; 
+                } 
+                msg.innerHTML="Registration  succesfully"; 
+                msg.style.color="green"; 
+                return true; 
+            } 
+        </script> 
+    </body> 
+ 
+</html>  
