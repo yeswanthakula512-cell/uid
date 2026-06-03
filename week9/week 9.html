@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <style> 
+            h1{ 
+              color:rgb(11, 11, 11);   
+            } 
+            .container{ 
+                margin:20px auto; 
+                max-width:500px; 
+                background-color:rgb(244, 240, 239); 
+                padding:20px; 
+                border-radius:10px; 
+            } 
+            body{ 
+                 background-color: rgb(143, 215, 236); 
+                text-align:center; 
+                padding:40px; 
+            } 
+            input{ 
+                padding:10px; 
+                width:80%; 
+                margin-bottom:20px; 
+                border:1px solid; 
+                border-radius:5px; 
+            } 
+            button{ 
+                padding:10px 15px; 
+                margin:5px; 
+                border:none; 
+                border-radius:5px; 
+            } 
+        </style> 
+    </head> 
+    <body> 
+        <h1>Number Analyzer-Even,Prime,Factorial,Armstrong checker</h1> 
+        <div class="container"> 
+            <input type="number" id="numberInput" placeholder="Enter a number"><br> 
+            <button onclick="even()">Even</button> 
+            <button onclick="prime()">Prime</button> 
+            <button onclick="factorial()">Factorial</button> 
+            <button onclick="armstrong()">Armstrong</button> 
+            <div id="output">Result will appear here....</div> 
+        </div> 
+ 
+        <script> 
+            function getnumber(){ 
+                return parseInt(document.getElementById('numberInput').value); 
+            } 
+            function even(){ 
+                let num=getnumber(); 
+                document.getElementById('output').innerText=(num%2==0)? num+" is even" : num+" is odd"; 
+            } 
+            function prime(){ 
+                let num=getnumber(); 
+                let isprime=true; 
+                if(num<2){ 
+                    isprime=false; 
+                } 
+                else{ 
+                    for(let i=2;i<num;i++){ 
+                        if(num%i===0){ 
+                            isprime=false; 
+                            break; 
+                        } 
+                    } 
+                } 
+                if(isprime){ 
+                    document.getElementById('output').innerText=num +" is prime"; 
+                } 
+                else{ 
+                    document.getElementById('output').innerText=num +" is not prime"; 
+                } 
+            } 
+            function factorial(){ 
+                let num= getnumber(); 
+                let factorial=1; 
+                for(let i=1;i<=num;i++){ 
+                    factorial*=i;   
+                } 
+                document.getElementById('output').innerText="factorial is: "+factorial; 
+            } 
+            function armstrong(){ 
+                let num=getnumber(); 
+                let length= num.toString().length; 
+                let temp=num; 
+                let armstrong=0; 
+                while(temp>0){ 
+                    let b= temp%10; 
+                    armstrong+=b**length; 
+                    temp=Math.floor(temp/10); 
+                } 
+                if(num==armstrong){ 
+                    document.getElementById('output').innerText=num +" is armstrong"; 
+                } 
+                else{ 
+                    document.getElementById('output').innerText=num +" is not armstrong"; 
+                } 
+            } 
+        </script> 
+    </body>     
+</html> 
